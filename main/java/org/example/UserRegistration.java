@@ -11,10 +11,9 @@ public class UserRegistration {
         Pattern regex = Pattern.compile(namePattern);
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the last name : ");
+        System.out.print("Enter the first name : ");
         String inputStr = sc.nextLine();
         Matcher firstNameMatcher = regex.matcher(inputStr);
-        sc.close();
         if (firstNameMatcher.matches()) {
             System.out.println(inputStr + " is valid name.");
         } else {
@@ -30,7 +29,6 @@ public class UserRegistration {
         System.out.print("Enter the last name : ");
         String inputStr = sc.nextLine();
         Matcher lastNameMatcher = regex.matcher(inputStr);
-        sc.close();
         if (lastNameMatcher.matches()) {
             System.out.println(inputStr + " is valid name.");
         } else {
@@ -38,14 +36,13 @@ public class UserRegistration {
         }
     }
     public void email(){
-        String mailPattern = "^abc(.+)[A-Za-z0-9]{3}+(@+)bl+(.+)[co]*(.[A-Za-z]{2})$";
+        String mailPattern = "^([a-zA-Z0-9\\.]+)@([a-z0-9]+).([a-z]{2,8})(\\.[a-z]{2,8})?$";
         Pattern regex = Pattern.compile(mailPattern);
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the email ID : ");
         String inputStr = sc.nextLine();
         Matcher emailIDMatcher = regex.matcher(inputStr);
-        sc.close();
         if (emailIDMatcher.matches()) {
             System.out.println(inputStr + " is valid mail.");
         } else {
@@ -53,20 +50,33 @@ public class UserRegistration {
         }
     }
     public void Contact(){
-        String contactNumPattern = "^[0-9]{2}\\s{1}[0-9]{10}$";
+        String contactNumPattern = "^[0-9]{2}[ ][0-9]{10}$";
         Pattern regex = Pattern.compile(contactNumPattern);
-
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the contact number : ");
         String inputStr = sc.nextLine();
         Matcher contactNumMatcher = regex.matcher(inputStr);
-        sc.close();
         if (contactNumMatcher.matches()) {
             System.out.println(inputStr + " is valid contact number.");
         } else {
             System.out.println(inputStr + " is invalid contact number.Kindly input the right one.");
         }
     }
+        public boolean password() {
+            String passwordPattern = "^[A-Za-z]{8}$";
+            Pattern regex = Pattern.compile(passwordPattern);
+            Scanner sc =new Scanner(System.in);
+            System.out.println("Please log in using 8 character password.");
+            System.out.print("Enter the Password : ");
+            String inputStr = sc.nextLine();
+            Matcher passwordMatcher = regex.matcher(inputStr);
+            if (passwordMatcher.matches()) {
+                System.out.println(inputStr + " succesfully loggedin and passed first rule.");
+            } else {
+                System.out.println(inputStr + " is invalid password.Kindly input minimum 8 character.");
+            }
+            return false;
+        }
 
     public static void main(String[] args) {
         UserRegistration userRegistration = new UserRegistration();
@@ -74,7 +84,7 @@ public class UserRegistration {
         userRegistration.lastname();
         userRegistration.email();
         userRegistration.Contact();
-
+        userRegistration.password();
 
     }
 }
