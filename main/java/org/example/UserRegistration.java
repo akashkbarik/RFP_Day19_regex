@@ -63,7 +63,7 @@ public class UserRegistration {
         }
     }
         public boolean password() {
-            String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$";
+            String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\\w).{8,}$";
             Pattern regex = Pattern.compile(passwordPattern);
             Scanner sc =new Scanner(System.in);
             System.out.println("Please log in using 8 character password: \none uppercase character is needed\none number is needed");
@@ -77,6 +77,7 @@ public class UserRegistration {
             }
             return false;
         }
+
 
     public static void main(String[] args) {
         UserRegistration userRegistration = new UserRegistration();
