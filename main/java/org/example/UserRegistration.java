@@ -63,15 +63,15 @@ public class UserRegistration {
         }
     }
         public boolean password() {
-            String passwordPattern = "^[A-Za-z]{8}$";
+            String passwordPattern = "^(?=[A-Z]{1})[a-zA-Z]{8,}$";
             Pattern regex = Pattern.compile(passwordPattern);
             Scanner sc =new Scanner(System.in);
-            System.out.println("Please log in using 8 character password.");
+            System.out.println("Please log in using 8 character password: \none uppercase character is needed).");
             System.out.print("Enter the Password : ");
             String inputStr = sc.nextLine();
             Matcher passwordMatcher = regex.matcher(inputStr);
             if (passwordMatcher.matches()) {
-                System.out.println(inputStr + " succesfully loggedin and passed first rule.");
+                System.out.println(inputStr + " succesfully loggedin and passed second rule.");
             } else {
                 System.out.println(inputStr + " is invalid password.Kindly input minimum 8 character.");
             }
@@ -80,10 +80,10 @@ public class UserRegistration {
 
     public static void main(String[] args) {
         UserRegistration userRegistration = new UserRegistration();
-        userRegistration.firstname();
-        userRegistration.lastname();
-        userRegistration.email();
-        userRegistration.Contact();
+//        userRegistration.firstname();
+//        userRegistration.lastname();
+//        userRegistration.email();
+//        userRegistration.Contact();
         userRegistration.password();
 
     }
