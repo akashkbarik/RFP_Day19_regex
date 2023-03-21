@@ -1,7 +1,6 @@
 package org.example;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -50,31 +49,31 @@ public class ParameterizedTest {
     @Test
     public void validateFirstName() {
         UserRegistration userRegistration=new UserRegistration();
-        Assert.assertEquals(expectedResultForFName, userRegistration.firstname(firstName));
+        Assert.assertEquals(expectedResultForFName, userRegistration.checkFirstname(firstName));
     }
 
     @Test
     public void validateLastName() {
         UserRegistration userRegistration=new UserRegistration();
-        Assert.assertEquals(expectedResultForLName, userRegistration.lastname(lastName));
+        Assert.assertEquals(expectedResultForLName, userRegistration.checkLastname(lastName));
     }
 
     @Test
     public void validateContactNumber() {
         UserRegistration userRegistration=new UserRegistration();
-        Assert.assertEquals(expectedResultForNumber, userRegistration.contact(contactNumber));
+        Assert.assertEquals(expectedResultForNumber, userRegistration.checkContact(contactNumber));
     }
 
     @Test
     public void validateEmailId() {
         UserRegistration userRegistration=new UserRegistration();
-        Assert.assertEquals(expectedResultForEmail, userRegistration.email(emailID));
+        Assert.assertEquals(expectedResultForEmail, userRegistration.checkEmail(emailID));
     }
 
     @Test
     public void validatePassword() {
         UserRegistration userRegistration=new UserRegistration();
-        Assert.assertEquals(expectedResultForPassword, userRegistration.password(password));
+        Assert.assertEquals(expectedResultForPassword, userRegistration.checkPassword(password));
     }
 }
 

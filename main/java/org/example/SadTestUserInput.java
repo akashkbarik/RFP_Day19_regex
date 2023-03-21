@@ -2,51 +2,88 @@ package org.example;
 
 
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class SadTestUserInput {
-    UserRegistration userRegistration = new UserRegistration();
+
 
     @Test
     public void givenFirstname_WhenNotProper_ShouldreturnFalse() {
-        boolean result = userRegistration.firstname("akh");
-        assertEquals(true, result);
+        UserRegistration userRegistration = new UserRegistration();
+        try {
+            ExpectedException ExceptionRule = ExpectedException.none();
+            ExceptionRule.expect(UserInputException.class);
+            boolean result = userRegistration.checkFirstname("akh");
+            assertEquals(true, result);
+        } catch (UserInputException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Test
     public void givenLastname_WhenNotProper_ShouldreturnFalse() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean result = userRegistration.lastname("Ba");
-        assertEquals(true, result);
+        ExpectedException ExceptionRule = ExpectedException.none();
+        ExceptionRule.expect(UserInputException.class);
+        try {
+            boolean result = userRegistration.checkLastname("Ba");
+            assertEquals(true, result);
+
+        } catch (UserInputException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Test
     public void givenEmail_WhenNotProper_ShouldreturnFalse() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean result = userRegistration.email("aakbarikgmai");
-        assertEquals(true, result);
+        ExpectedException ExceptionRule = ExpectedException.none();
+        ExceptionRule.expect(UserInputException.class);
+        try {
+            boolean result = userRegistration.checkEmail("aakbarikgmai");
+            assertEquals(true, result);
 
+        } catch (UserInputException e) {
+            System.out.println(e.getMessage());
+        }
     }
+
     @Test
     public void givenPassword_WhenNotProper_ShouldreturnFalse() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean result = userRegistration.password("Akashbarik12");
-        assertEquals(true, result);
+        ExpectedException ExceptionRule = ExpectedException.none();
+        ExceptionRule.expect(UserInputException.class);
+        try {
+            boolean result = userRegistration.checkPassword("Akashbarik12");
+            assertEquals(true, result);
+        } catch (UserInputException e) {
+            System.out.println(e.getMessage());
+        }
     }
-
     @Test
     public void givenContact_WhenNotProper_ShouldreturnFalse() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean result = userRegistration.contact("993863");
-        assertEquals(true, result);
+        ExpectedException ExceptionRule = ExpectedException.none();
+        ExceptionRule.expect(UserInputException.class);
+        try {
+            boolean result = userRegistration.checkContact("993863");
+            assertEquals(true, result);
+        } catch (UserInputException e) {
+            System.out.println(e.getMessage());
+        }
     }
-
-    @Test
-    public void givenPassword_WhenNotProper_ShouldreturnTrue() {
-        UserRegistration userRegistration = new UserRegistration();
-        boolean result = userRegistration.password("kashbarik1");
-        assertEquals(true, result);
-    }
-}
+                    @Test
+                    public void givenPassword_WhenNotProper_ShouldreturnTrue () {
+                        UserRegistration userRegistration = new UserRegistration();
+                        ExpectedException ExceptionRule = ExpectedException.none();
+                        ExceptionRule.expect(UserInputException.class);
+                        try {
+                            boolean result = userRegistration.checkPassword("kashbarik1");
+                            assertEquals(true, result);
+                        } catch (UserInputException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
+                }

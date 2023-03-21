@@ -51,7 +51,7 @@ public class EmailValidationTest {
     @Test
     public void givenEmail_ShouldReturnasperthe_parameterisedResult() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean result = userRegistration.email(emailToTest);
+        boolean result = userRegistration.checkEmail(emailToTest);
         assertEquals(expectedResult, result);
     }
 }
